@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Login {%endblock%}
+{% load crispy_forms_tags %}
+{%block content%}
+
+
+<div class="container-fluid" style="width: 100%; margin-left: -6vw;">
+    <div class="row justify-content-center" style="width: 100%;">
+        <div class="col">
+            <img src="{% static '/GeneralImage/pizzaHome.jpg'%}" alt="pizza" width="800" height="700" style="object-fit:cover;">
+        </div>
+
+        <div class="col mt-3">
+            <h2 class="text-center fw-bold fs-1 mb-5">Welcome to The CookSite!</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="id_username" class="form-label">Username: </label>
+                <input type="text" class="form-control" id="id_username" name="username" required>
+                <br>
+                <label for="id_password" class="form-label">Password: </label>
+                <input type="password" class="form-control" id="id_password" name="password" required>
+                <br>
+                <p>Don't Have an account? Create one <a href="{%url 'main:sign_up' %}"> Here </a>!</p>
+                <button type="submit" class="btn " style="background-color: brown; color: white;">Login</button>
+                </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
